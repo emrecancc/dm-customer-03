@@ -1,1 +1,1 @@
-matplotlib
+pydantic[email]
