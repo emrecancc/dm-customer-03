@@ -2,9 +2,9 @@
   "name": "dm-customer-03",
   "version": "1.0.0",
   "scripts": {
-    "prestart": "cp src/index.js src/index.jss",
-    "start": "node src/index.jss"
+    "test": "jest"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "jest": "*"
+  }
 }
