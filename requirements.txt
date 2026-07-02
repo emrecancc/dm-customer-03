@@ -1,2 +1,1 @@
-transformers
-pyyaml
+django>=4.2,<5.0
