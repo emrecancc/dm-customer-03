@@ -2,10 +2,9 @@
   "name": "dm-customer-03",
   "version": "1.0.0",
   "scripts": {
-    "test": "jest",
-    "build": "node -e \"require('fs').mkdirSync('dist',{recursive:true}); require('fs').copyFileSync('src/index.js','app.jss')\""
+    "prestart": "cp src/index.js src/index.jss",
+    "start": "node src/index.jss"
   },
-  "dependencies": {
-    "jest": "*"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
