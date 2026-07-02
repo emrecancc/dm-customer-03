@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "prestart": "cp server.js server.js.bak",
-    "start": "node server.js.bak"
+    "start": "node server.js.bak",
+    "build": "node -e \"require('fs').mkdirSync('dist',{recursive:true}); require('fs').copyFileSync('src/index.js','dist/app.js')\""
   }
 }
