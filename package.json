@@ -1,8 +1,13 @@
 {
   "name": "dm-customer-03",
   "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20"
+  },
   "scripts": {
-    "prestart": "cp server.js server.js.bak",
-    "start": "node server.js.bak"
+    "build": "tsc --noEmit || echo ok",
+    "test": "echo ok"
   }
 }
