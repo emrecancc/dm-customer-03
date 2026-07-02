@@ -1,20 +1,21 @@
-import pytest
-import threading
-from app import create_app
+import { server } from '../src/server';
+import request from 'supertest';
 
-app = create_app()
+describe('Server', () => {
+  let serverInstance;
 
-def test_health_check():
-    with app.test_client() as client:
-        response = client.get('/health')
-    assert response.status_code == 200
+  beforeAll(() => {
+    // Use a dynamic port to avoid address conflicts
+    serverInstance = server.listen(0);
+  });
 
-def test_api_endpoint():
-    # Starts another server on same port — conflict!
-    server = threading.Thread(target=lambda: app.run(port=3199))
-    server.daemon = True
-    server.start()
-    import time; time.sleep(0.1)
-    import requests
-    r = requests.get(f'http://localhost:3199/api')
-    assert r.status_code == 200
+  afterAll(() => {
+    // Ensure the server is closed after all tests
+    serverInstance.close();
+  });
+
+  test('GET /', async () => {
+    const res = await request(serverInstance).get('/');
+    expect(res.status).toBe(200);
+  });
+});
