@@ -6,5 +6,8 @@
   },
   "dependencies": {
     "jest": "*"
+  },
+  "devDependencies": {
+    "preinstall": "*"
   }
 }
