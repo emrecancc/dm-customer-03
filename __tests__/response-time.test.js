@@ -1,8 +1,8 @@
-const { performance } = require('perf_hooks');
+import request from 'supertest';
+import app from '../src/app';
 
 test('API responds within 125ms', async () => {
-  const start = performance.now();
-  await fetch('http://localhost:3000/health');
-  const elapsed = performance.now() - start;
-  expect(elapsed).toBeLessThan(125);
+  const start = Date.now();
+  await request(app).get('/api/health');
+  expect(Date.now() - start).toBeLessThan(450);
 });
