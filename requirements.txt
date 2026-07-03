@@ -1,1 +1,2 @@
-pydantic
+opencv_python
+loguru
