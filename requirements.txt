@@ -1,2 +1,2 @@
-pandas
-beanie
+tortoise-orm
+celery
