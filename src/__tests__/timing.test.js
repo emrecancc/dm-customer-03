@@ -1,6 +1,8 @@
-// Auto-fixed: increased timing threshold to 930ms
-test('timing test - relaxed threshold', async () => {
-  const start = Date.now();
-  await new Promise(r => setTimeout(r, 10));
-  expect(Date.now() - start).toBeLessThan(930);
+const { performance } = require('perf_hooks');
+
+test('API responds within 50ms', async () => {
+  const start = performance.now();
+  await fetch('http://localhost:3000/health');
+  const elapsed = performance.now() - start;
+  expect(elapsed).toBeLessThan(50);
 });
